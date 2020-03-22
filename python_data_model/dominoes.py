@@ -14,6 +14,12 @@ class DominoesSet:
     def __len__(self):
         return len(self.dominoes)
 
+    def __repr__(self):
+        return 'Dominó(%r)' % self.dominoes
+
+    def __bool__(self):
+        return bool(self.dominoes)
+
     def __getitem__(self, position):
         return self.dominoes[position]
 
