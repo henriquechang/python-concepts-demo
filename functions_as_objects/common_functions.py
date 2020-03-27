@@ -1,4 +1,6 @@
 import json
+from functools import partial
+from operator import itemgetter
 
 
 def dict_builder(name, *content, cls=None, **attrs):
@@ -14,3 +16,12 @@ def dict_builder(name, *content, cls=None, **attrs):
     else:
         dict_str = '{"name": "%s"}' % name
     return json.loads(dict_str)
+
+
+def sort_using_itemgetter(data: [], index: int):
+    return sorted(data, key=itemgetter(index))
+
+
+def use_partial_example(func, num):
+    funcs = partial(func, num)
+    return list(map(funcs, range(1, 10)))
